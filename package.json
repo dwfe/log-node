@@ -24,7 +24,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rimraf ./dist && tsc -b ./config/tsconfig.cjs.json ./config/tsconfig.esm.json",
+    "build": "rimraf ./dist && tsc -b ./src/tsconfig.json ./config/tsconfig.esm.json",
     "types": "tsc -b ./config/tsconfig.types.json",
     "version": "npm run build && npm run types",
     "postversion": "git push",
