@@ -33,7 +33,7 @@ export function log({type, title, message, asLine}: ILog): void {
       break;
     case 'warning':
       title = title && color.black.bgYellow(title);
-      message = message && color.black(message);
+      message = message && color.yellow(message);
       break;
     case 'success':
       title = title && color.black.bgGreen(title);
@@ -41,7 +41,7 @@ export function log({type, title, message, asLine}: ILog): void {
       break;
     case 'action':
       title = title && color.black.bgCyan(title);
-      message = message && color.black(message);
+      message = message && color.cyan(message);
       break;
     default:
       logErr('Logger:', `Unknown message type "${type}"`);
