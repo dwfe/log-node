@@ -61,5 +61,5 @@ export function log({type, title, message, asLine}: ILog): void {
 }
 
 function applyColor(values: string[], colorFn: (value: string) => string): string[] {
-  return values.map(colorFn);
+  return values.map(x => colorFn(`${x}`));
 }
