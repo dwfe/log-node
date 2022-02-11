@@ -24,24 +24,25 @@ export function logOption(option: string, value: any, asLine = true): void {
 
 
 export function log({type, title, message, asLine}: ILog): void {
-  if (message)
-    message = Array.isArray(message) ? message.join(' ') : message;
+  message = message
+    ? Array.isArray(message) ? message : [message]
+    : [];
   switch (type) {
     case 'error':
       title = title && color.black.bgRed(title);
-      message = message && color.red(message);
+      message = applyColor(message, color.red);
       break;
     case 'warning':
       title = title && color.black.bgYellow(title);
-      message = message && color.yellow(message);
+      message = applyColor(message, color.yellow);
       break;
     case 'success':
       title = title && color.black.bgGreen(title);
-      message = message && color.green(message);
+      message = applyColor(message, color.green);
       break;
     case 'action':
       title = title && color.black.bgCyan(title);
-      message = message && color.cyan(message);
+      message = applyColor(message, color.cyan);
       break;
     default:
       logErr('Logger:', `Unknown message type "${type}"`);
@@ -49,14 +50,16 @@ export function log({type, title, message, asLine}: ILog): void {
   }
   if (asLine) {
     if (title)
-      console.log(title, message || '');
+      console.log(title, ...message);
     else if (message)
-      console.log(message);
+      console.log(...message);
   } else {
-    if (title)
-      console.log(title);
-    if (message)
-      console.log(message);
+    title && console.log(title);
+    message.forEach((m: any) => console.log(m))
     console.log(' '); // empty line after message
   }
+}
+
+function applyColor(values: string[], colorFn: (value: string) => string): string[] {
+  return values.map(colorFn);
 }
