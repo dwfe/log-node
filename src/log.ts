@@ -2,15 +2,15 @@ import color from 'colors';
 import {ILog} from './contract.js';
 
 
-export function logErr(title: string, ...message: string[]): void {
+export function logErr(title: string, ...message: any[]): void {
   log({type: 'error', title, message});
 }
 
-export function logWarn(title: string, ...message: string[]): void {
+export function logWarn(title: string, ...message: any[]): void {
   log({type: 'warning', title, message});
 }
 
-export function logSuccess(title: string, ...message: string[]): void {
+export function logSuccess(title: string, ...message: any[]): void {
   log({type: 'success', title, message});
 }
 
@@ -18,8 +18,8 @@ export function logAction(title: string, asLine = true): void {
   log({type: 'action', title, asLine});
 }
 
-export function logOption(option: string, value: string): void {
-  log({type: 'success', title: option, message: value, asLine: true});
+export function logOption(option: string, value: any, asLine = true): void {
+  log({type: 'success', title: option, message: value, asLine});
 }
 
 
