@@ -30,6 +30,9 @@
     "postversion": "git push",
     "deploy": "npm version patch && npm publish"
   },
+  "bundledDependencies": [
+    "colors"
+  ],
   "dependencies": {
     "colors": "1.4.0"
   },
