@@ -1,5 +1,5 @@
 {
-  "extends": "../config/tsconfig.base.json",
+  "extends": "@do-while-for-each/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "CommonJS",

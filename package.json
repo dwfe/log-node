@@ -38,7 +38,7 @@
     "colors": "1.4.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.22"
+    "@do-while-for-each/tsconfig": "^1.0.3"
   },
   "publishConfig": {
     "access": "public"
