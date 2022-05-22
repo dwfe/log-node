@@ -23,14 +23,6 @@
     "LICENSE",
     "README.md"
   ],
-  "scripts": {
-    "clean": "dwfeFs cleanDir . --fileNames=\"dist;node_modules;package-lock.json\"",
-    "build": "dwfeFs rmForce dist --noConfirm && tsc -b src/tsconfig.json config/tsconfig.esm.json",
-    "types": "tsc -b config/tsconfig.types.json",
-    "version": "npm run build && npm run types",
-    "postversion": "git push",
-    "deploy": "npm version patch && npm publish"
-  },
   "bundledDependencies": [
     "colors"
   ],
@@ -38,7 +30,15 @@
     "colors": "1.4.0"
   },
   "devDependencies": {
-    "@do-while-for-each/tsconfig": "^1.0.3"
+    "@do-while-for-each/tsconfig": "1.x.x"
+  },
+  "scripts": {
+    "clean": "dwfeFs cleanDir . --fileNames=\"dist;node_modules;package-lock.json\"",
+    "build": "dwfeFs rmForce dist --noConfirm && tsc -b src/tsconfig.json config/tsconfig.esm.json",
+    "types": "tsc -b config/tsconfig.types.json",
+    "version": "npm run build && npm run types",
+    "postversion": "git push",
+    "deploy": "npm version patch && npm publish"
   },
   "publishConfig": {
     "access": "public"
