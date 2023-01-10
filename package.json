@@ -37,7 +37,6 @@
     "build": "dwfeFs rmForce dist --noConfirm && tsc -b src/tsconfig.json config/tsconfig.esm.json",
     "types": "tsc -b config/tsconfig.types.json",
     "version": "npm run build && npm run types",
-    "postversion": "git push",
     "deploy": "npm version patch && npm publish"
   },
   "publishConfig": {
